@@ -27,12 +27,21 @@ const Globe: React.FC<GlobeProps> = ({ config, width, height }) => {
 
     const globe = createGlobe(canvasRef.current, updatedConfig);
 
-    const animate = () => {
-      globe.render();
+    let lastRenderTime = 0;
+    const throttleInterval = 1000 / 30; // 30 FPS
+
+    const animate = (timestamp: number) => {
+      const elapsedTime = timestamp - lastRenderTime;
+
+      if (elapsedTime > throttleInterval) {
+        globe.render();
+        lastRenderTime = timestamp;
+      }
+
       frameId = requestAnimationFrame(animate);
     };
 
-    animate();
+    animate(performance.now());
 
     return () => {
       cancelAnimationFrame(frameId);
@@ -50,4 +59,4 @@ const Globe: React.FC<GlobeProps> = ({ config, width, height }) => {
   );
 };
 
-export default Globe;
+export default React.memo(Globe);
