@@ -53,7 +53,13 @@ const Globe: React.FC<GlobeProps> = ({ config, width, height }) => {
     <div className="App">
       <canvas
         ref={canvasRef}
-        style={{ width, height, maxWidth: "100%", aspectRatio: 1 }}
+        style={{
+          width: "100%",
+          height: "100%",
+          maxWidth: width,
+          maxHeight: height,
+          objectFit: "contain",
+        }}
       />
     </div>
   );
