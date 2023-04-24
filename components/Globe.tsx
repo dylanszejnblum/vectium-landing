@@ -4,8 +4,8 @@ import createGlobe from "cobe";
 
 type GlobeProps = {
   config: any;
-  width: string;
-  height: string;
+  width: number;
+  height: number;
 };
 
 const Globe: React.FC<GlobeProps> = ({ config, width, height }) => {
@@ -51,7 +51,10 @@ const Globe: React.FC<GlobeProps> = ({ config, width, height }) => {
 
   return (
     <div className="App">
-      <canvas ref={canvasRef} style={{ width, height, aspectRatio: 1 }} />
+      <canvas
+        ref={canvasRef}
+        style={{ width, height, maxWidth: "100%", aspectRatio: 1 }}
+      />
     </div>
   );
 };

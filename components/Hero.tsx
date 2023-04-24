@@ -119,7 +119,7 @@ const Hero: React.FC = () => {
         ml={{ md: 8 }}
         alignItems={"center"}
       >
-        <Globe width={"99%"} height={"99%"} config={config} />
+        <Globe width={650} height={650} config={config} />
       </Box>
     </Flex>
   );
