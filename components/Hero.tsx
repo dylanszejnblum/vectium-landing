@@ -72,6 +72,7 @@ const Hero: React.FC = () => {
         maxW="lg"
         textAlign={{ base: "center", md: "center" }}
         mb={{ base: 8, md: 0 }}
+        px={{ base: 4, md: 0 }}
       >
         <Image
           src="./vectium.svg"
@@ -97,6 +98,13 @@ const Hero: React.FC = () => {
           </Text>
           <Link href={"https://num.finance/"}>
             <Image src="./num.svg" alt="Your Image" width={150} height={150} />
+          </Link>
+        </Flex>
+        <Flex alignItems="center" style={{ marginBottom: "48px" }}>
+          <Link href={"https://doc.vectium.finance/"}>
+            <Button variant={"outline"} fontWeight={"bold"} outline={"12"}>
+              Check out the docs
+            </Button>
           </Link>
         </Flex>
 
